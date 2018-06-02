@@ -35,7 +35,7 @@ void should_send_path_and_extension(CuTest* testContext) {
 
     buf[recv_len] = '\0';
 
-    CuAssertStrEquals(testContext, "./a/ js", buf);
+    CuAssertStrEquals(testContext, "./a/ java", buf);
 }
 
 void should_receive_result(CuTest* testContext) {
@@ -43,7 +43,7 @@ void should_receive_result(CuTest* testContext) {
 
     memset(buf,'\0', BUFLEN);
 
-    char * message = "app.js\nbundle.js\n";
+    char * message = "app.java\nbundle.java\n";
     sendto(s, message, strlen(message), 0, (struct sockaddr*) &si_other, slen);
 
     if ((recv_len = recvfrom(s, buf, BUFLEN, 0, (struct sockaddr *) &si_other, &slen)) < 0) {
@@ -101,7 +101,7 @@ int main()
 
     int status = all_tests();
 
-    char * message = "app.js\nbundle.js\n";
+    char * message = "app.java\nbundle.java\n";
     sendto(s, message, strlen(message), 0, (struct sockaddr*) &si_other, slen);
 
     close(s);
