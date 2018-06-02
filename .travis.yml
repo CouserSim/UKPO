@@ -3,4 +3,4 @@ compiler: gcc
 
 script:
 - sh ./build.sh
-- (echo "./a/ js" | ./client/c) & ./client-server/s
+- (echo "./a/ js" | ./client/c) & ./client/s
